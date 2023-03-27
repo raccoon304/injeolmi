@@ -9,7 +9,7 @@ from bookmark.models import Bookmark
 
 #장고의 경우 컨텍스트 변수로 object_list , 템플릿 파일명을 모델명소문자_list.html 형식은 명시적으로 지정하지 않아도 장고가 디폴트로 알아서 지정 해줌 
 class BookmarkLV(ListView):
-    model = Bookmark 
+    model = Bookmark
 
 #Bookmark 테이블의 특정 레코드에 대한 살세 정보를 부여주기 위한 뷰 
 #DetailView를 상속받는 경우 특정 객체 하나를 컨텍스트 변수에 담아서 템플릿 시스템에 넘겨주면 됨 

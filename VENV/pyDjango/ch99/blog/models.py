@@ -19,8 +19,8 @@ class Post(models.Model):
     
     #필드 속성 외에 필요한 파라미터가 있으면, Meta 내부 클래스로 정의합니다.
     class Meta:
-        verdose_name = 'post'
-        verdose_name_plural = 'posts'
+        verbose_name = 'post'
+        verbose_name_plural = 'posts'
         db_table = 'blog_posts'
         #모델 객체의 리스트 풀력시 modify_dt 칼럼을 기준으로 내림차순으로 표시 
         ordering = ('-modify_dt',)
@@ -31,7 +31,7 @@ class Post(models.Model):
     def get_absolute_url(self): 
         return reverse('blog:post_detail', args=(self.slug,))
     #최신 포스트를 먼저 보여주고 있으므로get_previous_by_modify_dt()함수는 modify_dt컬럼을 기준으로 최신포스트 반환
-    def get_orevious(self):    
+    def get_previous(self):    
         return self.get_previous_by_modify_dt()
     def get_next(self):
         return self.get_next_by_modify_dt()
