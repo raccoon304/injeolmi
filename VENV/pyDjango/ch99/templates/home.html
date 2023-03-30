@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}home.html{% endblock %}
+
+{% block extra-style %}
+<style type="text/css">
+    .home=image{
+        background-image: url("{% static 'img/lion.jpg' %}");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+        height: 500px;
+        border-top: 10px solid #ccc;
+        border=bottom: 1-px solid #ccc;
+        padding: 20px 0 0 20px;
+    }
+    .title{
+        color: #c80;
+        font-weight: bold;
+    }
+    .powered{
+        position: relative;
+        top: 77%
+        color: #cc0;
+        font-style: italic;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+    <div class = "home-image">
+        <h2 class ="title">Django - Python Web Programming</h2>
+        <h4 class ="powerd"><i class ="fas fa-arrow-circle-right"></i>powerd by dgango and bootstrap</h4>
+    </div>
+    <hr style="margin: 10px 0;">
+    <div class = "row text-center">
+        <div class="row text-center">
+
+
+{% endblock %}
+
+{% block footer %}
+<footer class ="fixed-bottom bg-info ">
+    <h4>This is FIITER area</h4>
+</footer>
+{% endblock %}
