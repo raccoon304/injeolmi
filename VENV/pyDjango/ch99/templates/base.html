@@ -16,6 +16,7 @@
 
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
+          <!-- 사이트 제목 문구 스타일을 bold/italic체 마진(mx,mb)을 넓게 조정 <a> 태그 대신 <span>태그를 이용해 제목 링크를 달지 않음-->
           <span class="navbar-brand mx-5 mb-0 font-weight-bold font-italic">Django - Python Web Programming</span>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,14 +25,18 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+
+                <!-- 메뉴이름을 Home, Bookmark, Blog, Photo로 변경하고 각 제목에 { url %}태그를 활용해 링크를 달았음. 
+                  글자색을 검은색으로, Disabled의 경우 글자색을 흰색으로 변경 마우스 오버시 버튼(btn)모양이 되도록 변경 -->
+                <a class="nav-link active text-black" aria-current="page" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'bookmark:index' %}">bookmark</a>
+                <a class="nav-link text-black" href="{% url 'bookmark:index' %}">bookmark</a>
               </li>
+              <!-- 드롭다운 메뉴명을 Util , Admin/Archive/Search 서브메뉴를 만듦. 각 서브 메뉴에는 해당 URL링크를 연결 -->
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'blog:index' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  blog
+                <a class="nav-link dropdown-toggle text-black" href="{% url 'blog:index' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Util
                 </a>
 
                 <ul class="dropdown-menu">
@@ -42,9 +47,10 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+                <a class="nav-link disabled text-white">Disabled</a>
               </li>
             </ul>
+            <!-- 폼 메뉴에는 서버로 요청을 보낼 수 있도록 action/method/name 속성을 추가하고 csrf_token을 추가,Search버튼은 없어도 되므로 삭제-->
             <form class ="form-inline my-2" acion="" method="post"> {% csrf_token %}
                 <input class ="form=control mr-sm-2" type="Search" placegolder="globalserarch" name="serch_word">
             </form> 
@@ -55,5 +61,8 @@
         {% block content %}{% endblock %}
       </div>
       {% block footer %}{% endblock %}
+      <!-- 폰트어썸 CDN링크 추가 -->
+      <script src="https://kit.fontawesome.com/09ce90ebf6.js" crossorigin="anonymous"></script>
+
 </body>
 </html>

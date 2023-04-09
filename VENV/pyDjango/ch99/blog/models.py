@@ -1,5 +1,3 @@
-from django.db import models
-
 # Create your models here.
 from django.db import models
 #reverse() 함수는 URL패턴을 만들어주는 장고의 내장함수

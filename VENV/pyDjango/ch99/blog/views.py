@@ -16,7 +16,7 @@ class PostDV(DetailView):
     model = Post
 
 #-- ArchiveView
-class PostAV(ArchiveIndexView):
+class PostAV(ArchiveIndexView):     
     model = Post
     date_field = 'modify_dt'
 

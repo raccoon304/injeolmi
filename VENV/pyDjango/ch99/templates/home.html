@@ -1,9 +1,15 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} <!-- 상속시 extends 문장은 항상 맨윗 첫줄에 존재 해야 함-->
+
+{% load static %} <!-- static 템플릿 태그를 사용하기 위해 load static 문잔으로 템플릿 태그 파일 static을 로딩-->
 
 {% block title %}home.html{% endblock %}
 
+<!-- 해당 파일에서는 style에 대한 정의가 필요하므로 아래 해당 블록을 오버라이딩함.
+    이 부분은 별도의 .css파일로 분리할 수 있음.-->
 {% block extra-style %}
+
+<!-- 이미지가 표시될 영역인 home-image클래스를 정의 
+        배경이미지를 img/mu.jpg로 지정하여 이를 static 템플릿 태그를 사용해 URL을 링크함.-->
 <style type="text/css">
 .home-image{
     background-image:url("{% static 'img/mu.jpg' %}");
@@ -16,7 +22,7 @@
     padding: 20px 0 0 20px;
 }
 .title{
-    color: #c80;
+    color: #c00;
     font-weight: bold;
 }
 .powered{
@@ -32,10 +38,14 @@
 {% block content %}
     <div class = "home-image">
         <h2 class ="title">Django - Python Web Programming</h2>
+        <!-- 폰트어썸의 화살표 아이콘 사용. 아이콘 사용시 <i>태그를 사용-->
         <h4 class ="powerd"><i class ="fas fa-arrow-circle-right"></i>powerd by dgango and bootstrap</h4>
     </div>
+    <!-- 이미지 영역 밑에 10px 간격을 두고 수평선을 출력함.-->
     <hr style="margin: 10px 0;">
 
+    <!-- 북마크앱과 블로그 앱에 대한 설명은 각각 6-컬럼 너비를 차지함. 
+    부트스트랩은 총 12-컬럼 그리드 구조이므로 반반씩 차지함. 상위에 row 하위에col-클래스로 영역을 구분-->
     <div class = "row text-center">
         <div class= "col-sm-6">
             <h3>Bookmark App</h3>
@@ -44,7 +54,7 @@
                 You can store yourown bookmarks by Bookmark applocatopm.
                 It's also possible to update or delete your boomarks.</p>
             </div>
-            <div class ="cp;-sm-6">
+            <div class ="col-sm-6">
                 <h3>Blog App</h3>
                 <p>This application makes it possible to log daily events or write your own intersts
                     such as hobbies, tecniques, etc.
@@ -56,7 +66,7 @@
                 </div>
             </div>
 {% endblock content %}
-            
+<!--footer영역 즉 footer블록을 재정의(오버라이딩) -->            
 {% block footer %}
 <footer class ="fixed-bottom bg-info ">
     <div class="text-white font-italic text-right mr-5">Copyright &copy; 2019 DjangoBook by YDSON</div>
